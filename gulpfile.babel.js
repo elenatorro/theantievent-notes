@@ -23,7 +23,7 @@ const Tasks = Object.freeze({
 const Paths = Object.freeze({
   SRC: './index.js',
   SOURCE: './index.js',
-  DIST: './docs',
+  DIST: './build',
   DIST_MAIN: '.',
   MAPS: './maps',
   SCRIPTS: './src/**/*.js',
