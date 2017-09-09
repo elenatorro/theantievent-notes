@@ -14,7 +14,7 @@
 
     <header class="pk-bg-teal500 et-header">
       <nav class="pk-nav pk-nav-fxd pk-bg-teal500 pk-bdr-l-l pk-bdr-l-r pk-bdr-transparent">
-        <ul class="pk-nav-link-list pk-nav-link-list-r">
+        <ul class="pk-nav-link-list pk-nav-link-list-r pk-mg-s-lr">
           <li><a class="pk-nav-link pk-bg-hv-teal300" href="#">Incio</a></li>
           <li><a class="pk-nav-link pk-bg-hv-teal300" href="#agenda">Agenda</a></li>
         </ul>
@@ -62,6 +62,11 @@
                   <td>13:00</td>
                   <td><a href="#">VR</a></td>
                   <td><a href="#svg">SVG</a></td>
+                </tr>
+                <tr class="pk-bdr-s-b pk-bdr-grey800 pk-bg-teal300">
+                  <td>16:30</td>
+                  <td><a href="#autogestion">Autogestión de equipos</a></td>
+                  <td><a href="#"></a></td>
                 </tr>
               </table>
             </section>
@@ -437,6 +442,51 @@
               <li><a href="https://github.com/Xaviju/inkscape-open-symbols">Inkscape Open Symbols</a> by <a href="https://twitter.com/Xaviju">Xaviju</a></li>
             </ul>
       
+          </section>
+        </section>
+      </section>
+
+      <section class="pk-pdd-l-all" id="autogestion">
+        <section class="pk-grid">
+          <section class="pk-col pk-6 pk-pdd-m-lr">
+            <h2>Autogestión</h2>
+      
+            <section class="pk-col pk-1">
+              <div class="et-tag pk-mg-s-tb pk-pdd-s-all pk-bg-pink700">Equipos</div>
+              <div class="et-tag pk-mg-s-tb pk-pdd-s-all pk-bg-orange300">Organización</div>
+            </section>
+      
+            <p><a href="https://twitter.com/xaviju">Xavi</a> nos cuenta cómo están organizados los equipos de <a href="https://twitter.com/kaleidosnet">Kaleidos.</a></p>
+      
+            <p>Hay un tema habitual es: como conseguir que una persona sea independiente y su trabajo no dependa tanto de, por ejemplo, un jefe o de otro equipo. Es decir: equipos autogestionados.</p>
+      
+            <p>Una de las cosas que hacen es establecer unos acuerdos de equipos, desde cómo gestionar problemas hasta cómo organizar el código, por ejemplo. Son unas técnicas que se van mejorando con el tiempo, pero han comprobado que algo que suele pasar es que hay gente que asume más responsabilidades de otras.</p>
+      
+            <p>Es muy fácil escudarse en que "otra persona es responsable", y es normal que los que tienen más responsabilidad sean cargos más "altos", por lo que los cargos más "bajos" tienden asumir menos responsabilidades.</p>
+      
+            <p>Al final, cada uno del equipo asume unas tareas. El problema es cuando, una tarea del equipo que suele hacer una persona, tiene que ser realizada por otra, ya sea porque dicha persona tiene más trabajo o esté de vacaciones, por ejemplo, entonces a los demás les cuesta más asumir esa "responsabilidad", ya que prefiere seguir haciendo las tareas que más le gustan.</p>
+      
+            <p>¿Por qué puede pasar esto? Discutimos si esto pasa porque la gente no se siente preparada para asumir una tarea con la que no se siente cómodo, no solo porque no te guste.</p>
+      
+            <p>Un ejemplo de esto es: imagínate que todos acordamos después de comer, limpiar. Pero algún día, alguien deja de hacerlo, por prisa o por cualquier razón. ¿Cómo se gestiona este problema? ¿Cuál es la solución? ¿Se vuelve a hablar?</p>
+      
+            <p>Hablamos de que muchas veces nos exusamos en el "no tenemos tiempo", ya que consideramos que unas tareas dan más valor que otra (ya sea esto dinero, producto...) ¿Sería una solución, para eso, utilizar gamificación?</p>
+      
+            <p>Es importante establecer lo que es un <a href="https://manifesto.co.uk/definition-done/">"Definition Of Done" (DoD)</a>, es decir: cuándo consideramos que una tarea está finalizada. Esto puede ser, que los tests salgan en verde, pero en definitiva es un consenso que asegura que una tarea ha sido terminada con calidad y todos están de acuerdo con eso.</p>
+      
+            <p>Una forma muy efectiva de currar es el pair programming, tanto con gente que lleva mucho en el equipo como con gente que acaba de entrar.</p>
+      
+            <p>Hablamos sobre cómo gestionar las tareas, en concreto de Pull Requests. Si una tarea es tan grande que "no hay tiempo" para hacer una PR, o que la PR es gigantesca, es una señal de que la tarea es demasiado grande y que habría que dividirla en tareas más pequeñas. Otra regla de la que hablan para evitar tareas largas es que una nueva rama no pueda tener más de dos días de vida.</p>
+      
+            <p>Al hilo de cómo repartir la probabilidad, hablamos de equipos en los que "todos hacen de todo", aunque en el equipo haya distintos niveles entre junior y senior. Se debate que, partiendo de eso, hay equipos en los que si alguien encuentra un bug, automáticamente tiene que arreglarlo, sea cual sea su nivel. Un bug "inmediato" es algo que NO puede llegar a producción.</p>
+      
+            <p>Xavi nos pregunta cómo acordamos con el equipo "qué es" un bug: ¿cómo se llega a ese acuerdo?</p>
+      
+            <p>Se habla también de cómo gestionar los problemas visuales, de accesibilidad, usabilidad, maquetación, diseño... y cómo es la comunicación entre perfiles de diseño y desarrollo. Es conocido que hay muchos problemas de integración entre estos perfiles. Un PR puede incluir también al encargado del diseño, que tenga que aprobar lo que se ha hecho y pueda dar feedback.</p>
+      
+            <p>El problema no está en cuando algo es blanco o negro, sino los "grises". Es decir, cuando hay que decidir porque no está claro. Cómo decidir quién "tiene razón", porque al no haber una contradicción en el que está claro la posición de cada uno, nadie lo tiene claro del todo. Esto se puede ver haciendo lo que es un "voto romano", donde 👍 quiere decir de acuerdo, 👎 en desacuerdo, y 👊 ni sí ni no. Si hay mucho 👊, quiere decir que hay un problema, porque no has logrado convencer a nadie. Previene además de "falsos consensos"</p>
+      
+            <p>Se recomienda el libro: <a href="http://theseniorsoftwareengineer.com/">"The Senior Software Developer"</a>, que habla de qué hacer cuando hay una discusión, cómo abordar una PR, que pueden venir muy bien para el trabajo diario en equipo.</p>
           </section>
         </section>
       </section>
