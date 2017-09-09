@@ -1,0 +1,57 @@
+<section class="pk-pdd-l-all" id="svg">
+  <section class="pk-grid">
+    <section class="pk-col pk-6 pk-pdd-m-lr">
+      <h2>SVG</h2>
+
+      {{> _svg-demo }}
+
+      <p><a href="https://twitter.com/jorgeATGU">Jorge</a> nos habla de SVG!</p>
+      <p>Es una etiqueta de la especificación de HTML. Estás pintando codigo.</p>
+
+      <h3>Características</h3>
+
+      <ul>
+        <li>Namespace: importantes para que un navegador lo interpretae.</li>
+        <li>Coordenadas: Coordenadas base</li>
+        <li>ViewBox: x, y, ancho y alto</li>
+        <li>Medidas: width y height tienen que coincidir con los dos últimos valores del view box.</li>
+        <li>Accesibilidad: utilizando aria-labelledby</li>
+      </ul>
+
+      <h3>¿Qué podemos hacer?</h3>
+
+      <ul>
+        <li>Formas básicas</li>
+        <li>Texto</li>
+        <li>Transformaciones</li>
+        <li>Filtros (<a href="http://jorgeatgu.github.io/svg-filters/">ejemplo</a>)</li>
+        <li>Patrones (<a href="http://www.heropatterns.com/">ejemplos</a>)</li>
+        <li>Degradados</li>
+        <li>Máscaras</li>
+        <li>Imágenes</li>
+      </ul>
+
+      <p>Dependiendo de la imagen, nos puede interesar tenerla en SVG o no.</p>
+      <p>Escribir en línea el SVG nos permite ahorrarnos espacio y animarlo con CSS y JS. Sara Soueidan dice de incluirlo siempre con SVG. El tema es que si lo incluyes como imagen, se cachea y se carga más rápido, ya depende de lo que quieras hacer. Si
+        lo incluyes a través de CSS tampoco se puede animar. También se puede utilizar la etiqueta object, pero de nuevo, no podemos animar.</p>
+
+      <h3>Optimización</h3>
+
+      <p>Se pueden utilizar herramientas como Illustrator para optimizar SVG (archivo > exportar > exportar como). Eso se debe a que al crear un SVG hay muchos datos que no son necesarios a la hora de utilizarlos en la web.</p>
+      <p>Otro optomizador es <a href="https://github.com/svg/svgo">SVGO</a> (SVG Optimizer)</p>
+      <p>Otra manera es utilizando sprites, pero no tiene soporte en IE (aunque hay una librería que se puede utilizar)</p>
+
+      <h3>¡Más links!</h3>
+
+      <ul>
+        <li><a href="https://flaticon.com">Flaticon</li></li>
+        <li><a href="">Presentación de Jorge</a></li>
+        <li>
+          <a href="https://leanpub.com/scalable/">Libro de SVG</a>
+        </li>
+        <li><a href="https://github.com/Xaviju/inkscape-open-symbols">Inkscape Open Symbols</a> by <a href="https://twitter.com/Xaviju">Xaviju</a></li>
+      </ul>
+
+    </section>
+  </section>
+</section>
