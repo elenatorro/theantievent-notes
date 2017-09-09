@@ -1,0 +1,112 @@
+<section class="pk-pdd-l-all" id="refactoring_kata">
+  <section class="pk-grid pk-pdd-m-tb">
+    <section class="pk-col pk-6 pk-pdd-m-lr">
+      <h2>Kata de Refactor</h2>
+
+      <section class="pk-col pk-1">
+        <div class="et-tag pk-mg-s-tb pk-pdd-s-all pk-bg-purple500">Kata</div>
+        <div class="et-tag pk-mg-s-tb pk-pdd-s-all pk-bg-cyan500">JavaScript</div>
+        <div class="et-tag pk-mg-s-tb pk-pdd-s-all pk-bg-blue-grey500">Refactor</div>
+        <div class="et-tag pk-mg-s-tb pk-pdd-s-all pk-bg-light-blue500">Tests</div>
+      </section>
+
+
+      <h3>The Tale of The Gilded Rose</h3>
+
+      <h4>El enunciado</h4>
+      <p>Vamos a hacer una kata de refactoring entre todos. Se puede encontrar más detallada <a href="https://es.slideshare.net/lee-jon/the-taleofthegildedrose">aquí</a> y el código en <a href="https://github.com/emilybache/GildedRose-Refactoring-Kata">GitHub</a> (Está en un montón de lenguajes).</p>
+
+      <p>Se trata de una kata muy divertida, y la van guiando <a href="https://twitter.com/elreplicante">Sergio Revilla</a> y <a href="https://twitter.com/dani_latorre">Dani Latorre</a></p>
+
+      <blockquote class="pk-f-teal800">"Welcome to Gilded Rose Inn Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods. Unfortunately, our goods are constantly degrading in quality as they approach their sell by date. We have a system in place that updates our inventory for us. It was developed by a no-nonsense type named Leeroy, who has moved on to new adventures. Your task is to add the new feature to our system so that we can begin selling a new category of items"</blockquote>
+
+      <p>Hablamos de que esta kata está muy ligada al concepto <a href="https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwi4zurYzJjWAhUMcBoKHQh6DR8QFggnMAA&url=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FDise%25C3%25B1o_guiado_por_el_dominio&usg=AFQjCNE2iLV6K2xMPI_cb1q7i3yuNjM-Kw">Domain Driven Design (DDD)</a></p>
+
+    <h4>El código</h4>
+    <pre class="pk-pre"><code><xmp>
+function Item(name, sell_in, quality) {
+  this.name = name;
+  this.sell_in = sell_in;
+  this.quality = quality;
+}
+
+var items = []
+
+items.push(new Item('+5 Dexterity Vest', 10, 20));
+items.push(new Item('Aged Brie', 2, 0));
+items.push(new Item('Elixir of the Mongoose', 5, 7));
+items.push(new Item('Sulfuras, Hand of Ragnaros', 0, 80));
+items.push(new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20));
+items.push(new Item('Conjured Mana Cake', 3, 6));
+
+function update_quality() {
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].name != 'Aged Brie' && items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
+      if (items[i].quality > 0) {
+        if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
+          items[i].quality = items[i].quality - 1
+        }
+      }
+    } else {
+      if (items[i].quality < 50) {
+        items[i].quality = items[i].quality + 1
+        if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
+          if (items[i].sell_in < 11) {
+            if (items[i].quality < 50) {
+              items[i].quality = items[i].quality + 1
+            }
+          }
+          if (items[i].sell_in < 6) {
+            if (items[i].quality < 50) {
+              items[i].quality = items[i].quality + 1
+            }
+          }
+        }
+      }
+    }
+    if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
+      items[i].sell_in = items[i].sell_in - 1;
+    }
+    if (items[i].sell_in < 0) {
+      if (items[i].name != 'Aged Brie') {
+        if (items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
+          if (items[i].quality > 0) {
+            if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
+              items[i].quality = items[i].quality - 1
+            }
+          }
+        } else {
+          items[i].quality = items[i].quality - items[i].quality
+        }
+      } else {
+        if (items[i].quality < 50) {
+          items[i].quality = items[i].quality + 1
+        }
+      }
+    }
+  }
+}
+</xmp></code></pre>
+
+    <h4>Conversaciones</h4>
+
+    <p>Smells a simple vista:</p>
+    
+    <ul class="et-list">
+      <li>Formateo de código: faltan espacios, no hay una convención.</li>
+      <li>Mogollón de ifs</li>
+      <li>Muchos "<code>this.items[i]"</code>. ¿Cómo llamamos a la variable para guardar este valor en el iterable? Hablamos de consistencia de los nombres.</li>
+      <li>Hablamos de los Magic Numbers, para algunos tiene sentido cambiarlos, y para otros no. Interesante discusión.</li>
+      <li>Volvemos a los ifs: vemos cómo nombrar funciones para evitarnos tantas comparaciones. Sí, el naming es lo más complicado.</li>
+      <li><a href="https://twitter.com/che1404">Roberto Garrido</a> pilla que nos hemos dejado espacios de más. El linter de grupo.</li>
+      <li>Vamos a qué hacer para incrementar la calidad del item y si pasar como parámetro cuánto incrementar la calidad.</li>
+      <li>¿<code>increaseQuality</code> y <code>decreaseQuality</code> o <code>changeQuality</code>?</li>
+      <li>Nos reímos porque acabamos de ver esta línea <code>items[i].quality = items[i].quality - items[i].quality</code> (en nuestro caso, la versión refactorizada)</li>
+      <li>Los ifs nos siguen matando. Hay quien hubiera empezando cambiando esto.</li>
+      <li>Hablamos de una función que hace "más de una cosa". ¿Dónde está el problema? ¿En el naming?</li>
+      <li>Nos damos cuenta de que hay semánticas que son propias de algún lenguaje. Utilizamos "try" para llamar a una función, y hablamos de si eso quiere decir que tiene un <code>try - catch</code>, mientras que en C# es convención.</li>
+      <li>Se nos acaba el tiempo y no podemos seguir :(</li>
+    </ul>
+    </section>
+  </section>
+</section>

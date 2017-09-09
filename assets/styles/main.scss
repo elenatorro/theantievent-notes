@@ -53,6 +53,13 @@ h2 {
   border-radius: 5px;
 }
 
+.et-list {
+  li {
+    list-style-type: circle;
+    margin: .5em 0;
+  }
+}
+
 @media all and (max-width: 993px) {
   .et-text {
     font-size: 1em;
